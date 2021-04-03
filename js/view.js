@@ -36,9 +36,9 @@ function showTimerExercise() {
     exerciseTimer.classList.add("card", "p-2", "col-md-8", "offset-md-2", "bg-success");
 
     exerciseTimer.innerHTML = ` <h2 class="display-1 text-center text-light">Exercise</h2>
-                                <h1 class="display-1 timer text-light" id="timer">${ exercise.value } </h1>
-                                <h5 class=" text-center text-light" id="set">Sets left: ${setsVal.value} </h5>
-                                <progress max="${ exercise.value  }" value="${ exercise.value }" class="progress progress--rest" id="progressBar"></progress> `                           
+                                <h1 class="display-1 timer text-light" id="timer">${ exercise } </h1>
+                                <h5 class=" text-center text-light" id="set">Sets left: ${sets} </h5>
+                                <progress max="${ exercise }" value="${ exercise}" class="progress progress--rest" id="progressBar"></progress> `                           
     exerciseView.append(exerciseTimer);     
 }
 
@@ -47,9 +47,9 @@ function showTimerRest() {
     exerciseTimer.classList.add("card", "p-2", "col-md-8", "offset-md-2", "bg-danger");
 
     exerciseTimer.innerHTML = ` <h2 class="display-1 text-center text-light">Rest</h2>
-                            <span class="display-1 timer text-light" id="timer">${ rest.value } </span>
-                            <h5 class="text-center text-light" id="set"> Sets left: ${setsVal.value} </h5>
-                            <progress max="${ rest.value }" value="${ rest.value}" class="progress progress--set" id="progressBar"></progress> `
+                            <span class="display-1 timer text-light" id="timer">${ rest } </span>
+                            <h5 class="text-center text-light" id="set"> Sets left: ${sets} </h5>
+                            <progress max="${ rest}" value="${ rest}" class="progress progress--set" id="progressBar"></progress> `
     exerciseView.append(exerciseTimer);
    
 }

@@ -13,7 +13,7 @@ const submitBtn = document.querySelector("#startBtn");
 submitBtn.addEventListener("click", handleClick);
 
 let currView = "exercise";
-let setsVal = document.querySelector("#sets");
+let totalSets = sets.value;
 let timerCompleted = false;
 
 
@@ -26,9 +26,9 @@ function handleClick(e) {
 
   
    
-    exercise.value = document.querySelector("#exercise").value;
-    rest.value = document.querySelector("#rest").value;
-    sets.value = document.querySelector("#sets").value;
+    exercise = document.querySelector("#exercise").value;
+    rest = document.querySelector("#rest").value;
+    sets = document.querySelector("#sets").value;
     showTimerExercise();
     startTimer();
 }
@@ -39,7 +39,7 @@ function startTimer() {
     const timerElement = document.querySelector("#timer");
     const progressBar = document.getElementById("progressBar");
     let timerCounter = progressBar.max;
-    let totalSets = setsVal.value;
+   
 
     if (timerCompleted === true) {
         completeView.removeChild(completeView.childNodes[0]);
@@ -52,24 +52,25 @@ function startTimer() {
             clearInterval(interval);
             exerciseView.removeChild(exerciseView.childNodes[0]);
 
-        if (setsVal.value <= 0) {
+        if (sets <= 0) {
             showTimerComplete(totalSets);
             submitBtn.disabled = false;
-            setsVal.value = 3;
+            sets.value = 3;
             timerCompleted = true;
         }
         else if (currView === "exercise") {
             showTimerRest();
             startTimer();
             currView = "rest"
-            setsVal.value--;
+            sets--;
+
             
         }
         else if (currView === "rest") {
             showTimerExercise();
             startTimer()
             currView = "exercise"
-           
+            // sets--;
            
         }  
         }
