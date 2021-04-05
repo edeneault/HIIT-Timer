@@ -9,8 +9,8 @@ const homeView = document.querySelector("#timers-home");
 const setsElement = document.querySelector("#sets");
 
 showTimerHome();
-const submitBtn = document.querySelector("#startBtn");
-submitBtn.addEventListener("click", handleClick);
+// const submitBtn = document.querySelector("#startBtn");
+// submitBtn.addEventListener("click", handleClick);
 
 let currView = "exercise";
 let totalSets = sets.value;
@@ -19,16 +19,18 @@ let timerCompleted = false;
 // Instanciate Sound Objects and set volume property //
 const snd = new Audio("Boxing_BELL_One_ring.mp3"); // buffers automatically when created
 const snd1 = new Audio("Boxing_BELL_three_rings.mp3"); // buffers automatically when created
-snd.volume = 0.4;
+snd.volume = 0.2;
 snd1.volume = 0.5;
 
 // Click Event Handler //
 function handleClick(e) {
+    console.log(e);
     e.preventDefault();
-    submitBtn.disabled = true; 
+    // submitBtn.disabled = true; 
     exercise = document.querySelector("#exercise").value;
     rest = document.querySelector("#rest").value;
     sets = document.querySelector("#sets").value;
+    homeView.removeChild(homeView.childNodes[0]);
     showTimerExercise();
     startTimer();
     snd.play(); 
@@ -42,12 +44,10 @@ function startTimer() {
     const progressBar = document.getElementById("progressBar");
     let timerCounter = progressBar.max;
    
-
     if (timerCompleted === true) {
         completeView.removeChild(completeView.childNodes[0]);
         timerCompleted = false;
-        currView = "exercise";
-      
+        currView = "exercise"; 
     }
 
     const interval = setInterval(() => {
@@ -56,30 +56,30 @@ function startTimer() {
             exerciseView.removeChild(exerciseView.childNodes[0]);
 
             if (sets <= 0) {
-            snd1.play();  
-            showTimerComplete(totalSets);
-            submitBtn.disabled = false;
-            sets.value = 3;
-            timerCompleted = true;
-        }
-        else if (currView === "exercise") {
-            snd.play();  
-            showTimerRest();
-            startTimer();
-            currView = "rest"
-            sets--;
-            
-            
-        }
-        else if (currView === "rest") {
-            snd.play();  
-            showTimerExercise();
-            startTimer()
-            currView = "exercise"
-            
-            // sets--;
-           
-        }  
+                toggleFullScreen();
+                snd1.play();  
+                showTimerComplete(totalSets);
+                // submitBtn.disabled = false;
+                sets.value = 3;
+                timerCompleted = true;
+                showTimerHome();    
+                console.log("🚀 ~ file: app.js ~ line 66 ~ interval ~ showTimerHome(); ", showTimerHome);
+                // const submitBtn = document.querySelector("#startBtn");
+                // submitBtn.addEventListener("click", handleClick);
+            }
+            else if (currView === "exercise") {
+                snd.play();  
+                showTimerRest();
+                startTimer();
+                currView = "rest"
+                sets--;
+            }
+            else if (currView === "rest") {
+                snd.play();  
+                showTimerExercise();
+                startTimer()
+                currView = "exercise"
+            }  
         }
         timerCounter = timerCounter - 1;
         

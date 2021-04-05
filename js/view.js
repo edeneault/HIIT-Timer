@@ -28,30 +28,43 @@ function showTimerHome() {
                                         </div>
                                     </div>    
                             </form>`
-    homeView.append(homeTimer);  
+    homeView.append(homeTimer);
+    const submitBtn = document.querySelector("#startBtn");
+    submitBtn.addEventListener("click", handleClick);
 }
 
 function showTimerExercise() {
     const exerciseTimer = document.createElement("div");
-    exerciseTimer.classList.add("card", "p-2", "col-md-8", "offset-md-2", "bg-success");
+    exerciseTimer.classList.add("card", "h-100", "w-100", "justify-content-center", "bg-success");
 
     exerciseTimer.innerHTML = ` <h2 class="display-1 text-center text-light">Exercise</h2>
                                 <h1 class="display-1 timer text-light" id="timer">${ exercise } </h1>
                                 <h5 class=" text-center text-light" id="set">Sets left: ${sets} </h5>
-                                <progress max="${ exercise }" value="${ exercise}" class="progress progress--rest" id="progressBar"></progress> `                           
-    exerciseView.append(exerciseTimer);     
+                               
+                                <progress max="${ exercise}" value="${exercise}" class="progress progress--rest" id="progressBar"></progress>
+                                <p class="btn btn-outline-light position-absolute m-2 bottom-0 end-0 col-md-2 fullscreen"><i class="large fas fa-expand-arrows-alt fa-5x"></i></p> `
+    exerciseView.append(exerciseTimer);  
+     
+    const fullscreenBtn = document.querySelector(".fullscreen"); 
+    fullscreenBtn.addEventListener("click", () => {
+        toggleFullScreen();
+    });
 }
 
 function showTimerRest() {
     const exerciseTimer = document.createElement("div");
-    exerciseTimer.classList.add("card", "p-2", "col-md-8", "offset-md-2", "bg-danger");
+    exerciseTimer.classList.add("card", "h-100", "w-100", "justify-content-center", "bg-danger");
 
     exerciseTimer.innerHTML = ` <h2 class="display-1 text-center text-light">Rest</h2>
                             <span class="display-1 timer text-light" id="timer">${ rest } </span>
                             <h5 class="text-center text-light" id="set"> Sets left: ${sets} </h5>
-                            <progress max="${ rest}" value="${ rest}" class="progress progress--set" id="progressBar"></progress> `
+                            <progress max="${ rest}" value="${ rest}" class="progress progress--set" id="progressBar"></progress>
+                            <p class="btn btn-outline-light position-absolute m-2 bottom-0 end-0 col-md-2 fullscreen"><i class="large fas fa-expand-arrows-alt fa-5x"></i></p> `
     exerciseView.append(exerciseTimer);
-   
+    const fullscreenBtn = document.querySelector(".fullscreen");
+    fullscreenBtn.addEventListener("click", () => {
+        toggleFullScreen();
+    });
 }
 
 function showTimerComplete(totalSets) {
