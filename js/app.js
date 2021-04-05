@@ -56,7 +56,7 @@ function startTimer() {
             exerciseView.removeChild(exerciseView.childNodes[0]);
 
             if (sets <= 0) {
-                toggleFullScreen();
+                // toggleFullScreen();
                 snd1.play();  
                 showTimerComplete(totalSets);
                 // submitBtn.disabled = false;
