@@ -121,7 +121,7 @@ only screen and (min-resolution: 2dppx) {
     .sidebar .logo a {
         background-image: url(../img/clipart1066235.png) !important;
         background-repeat: no-repeat !important;
-        background-size: 172px 74px !important;
+        background-size: 75px 75px !important;
     }
 
     .sidebar.light .logo a {
