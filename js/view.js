@@ -42,6 +42,7 @@ function showTimerExercise() {
                                 <h1 class="display-1 timer text-light mb-5" id="timer">${ exercise } </h1>
                                 <h5 class=" text-center text-light my-5 py-5 " id="set">Sets left: ${sets} </h5>
                                 <progress max="${ exercise}" value="${exercise}" class="progress progress--rest" id="progressBar"></progress>
+                                <p class="btn btn-outline-light col-2 col-md-1 m-3">RESET</p>
                                 `
     exerciseView.append(exerciseTimer);  
      
@@ -59,7 +60,8 @@ function showTimerRest() {
                                 <h2 class="display-1 text-center text-light mb-5 pb-5">Rest</h2>
                                 <span class="display-1 timer text-light my-5" id="timer">${ rest } </span>
                                 <h5 class="text-center text-light my-5 py-5" id="set"> Sets left: ${sets} </h5>
-                                <progress max="${ rest}" value="${ rest}" class="progress progress--set" id="progressBar"></progress>`
+                                <progress max="${ rest}" value="${rest}" class="progress progress--set" id="progressBar"></progress>
+                                <p class="btn btn-outline-light col-2 col-md-1 m-3">RESET</p>`
     exerciseView.append(exerciseTimer);
     const fullscreenBtn = document.querySelector(".fullscreen");
     fullscreenBtn.addEventListener("click", () => {
