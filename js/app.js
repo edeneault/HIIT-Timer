@@ -8,13 +8,14 @@ const completeView = document.querySelector("#timers-complete");
 const homeView = document.querySelector("#timers-home");
 const setsElement = document.querySelector("#sets");
 
-showTimerHome();
-// const submitBtn = document.querySelector("#startBtn");
-// submitBtn.addEventListener("click", handleClick);
 
+showTimerHome();
 let currView = "exercise";
 let totalSets = sets.value;
-let timerCompleted = false;
+let timerCompleted = false;   
+
+
+
 
 // Instanciate Sound Objects and set volume property //
 const snd = new Audio("Boxing_BELL_One_ring.mp3"); // buffers automatically when created
@@ -56,7 +57,7 @@ function startTimer() {
             exerciseView.removeChild(exerciseView.childNodes[0]);
 
             if (sets <= 0) {
-                // toggleFullScreen();
+                toggleFullScreen();
                 snd1.play();  
                 showTimerComplete(totalSets);
                 // submitBtn.disabled = false;
@@ -64,8 +65,6 @@ function startTimer() {
                 timerCompleted = true;
                 showTimerHome();    
                 console.log("🚀 ~ file: app.js ~ line 66 ~ interval ~ showTimerHome(); ", showTimerHome);
-                // const submitBtn = document.querySelector("#startBtn");
-                // submitBtn.addEventListener("click", handleClick);
             }
             else if (currView === "exercise") {
                 snd.play();  
