@@ -37,7 +37,7 @@ function showTimerExercise() {
     const exerciseTimer = document.createElement("div");
     exerciseTimer.classList.add("container-fluid", "main", "exercise-color");
 
-    exerciseTimer.innerHTML = ` <p class="btn btn-outline-light col-md-1 m-3 fullscreen"><i class="fas fa-expand-arrows-alt fa-5x"></i></p>
+    exerciseTimer.innerHTML = ` <p class="btn btn-outline-light col-md-1 m-3 fullscreen"><i class="fas fa-expand-arrows-alt fa-2x"></i></p>
                                 <h2 class="display-1 text-center text-light mb-5 pb-5">Exercise</h2>
                                 <h1 class="display-1 timer text-light mb-5" id="timer">${ exercise } </h1>
                                 <h5 class=" text-center text-light my-5 py-5 " id="set">Sets left: ${sets} </h5>
@@ -55,7 +55,7 @@ function showTimerRest() {
     const exerciseTimer = document.createElement("div");
     exerciseTimer.classList.add("container-fluid",  "main", "rest-color");
 
-    exerciseTimer.innerHTML = ` <p class="btn btn-outline-light col-md-1 m-3 fullscreen"><i class="fas fa-expand-arrows-alt fa-5x"></i></p> 
+    exerciseTimer.innerHTML = ` <p class="btn btn-outline-light col-md-1 m-3 fullscreen"><i class="fas fa-expand-arrows-alt fa-2x"></i></p> 
                                 <h2 class="display-1 text-center text-light mb-5 pb-5">Rest</h2>
                                 <span class="display-1 timer text-light my-5" id="timer">${ rest } </span>
                                 <h5 class="text-center text-light my-5 py-5" id="set"> Sets left: ${sets} </h5>
