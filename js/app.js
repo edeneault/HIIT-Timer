@@ -64,7 +64,7 @@ function startTimer() {
                 sets.value = 3;
                 timerCompleted = true;
                 showTimerHome();    
-                console.log("🚀 ~ file: app.js ~ line 66 ~ interval ~ showTimerHome(); ", showTimerHome);
+                // console.log("🚀 ~ file: app.js ~ line 66 ~ interval ~ showTimerHome(); ", showTimerHome);
             }
             else if (currView === "exercise") {
                 snd.play();  
